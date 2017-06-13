@@ -1,2 +1,4 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<% provide(:title, "Event") %>
+<h1><%= @event.name %></h1>
+<p><%= @event.description %></p>
+<p>Hosted by: <%= @event.creator.name %></p>
