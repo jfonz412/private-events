@@ -1,2 +1,8 @@
+<% provide(:title, "Profile") %>
 <h1>Welcome <%= @user.name %>!</h1>
-
+<h2>Events planned:</h2>
+<% if @user.events %>
+	<% @user.events.each do |event| %>
+		<%= event.name %>
+	<% end %>
+<% end %>
