@@ -17,6 +17,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 		assert_difference 'User.count', 1 do
 			post signup_path, params: { user: { name: @user.name } }
 		end
-		#assert_redirected_to user_path(@user.id)
+    follow_redirect!
+    assert_template 'users/show'
 	end
 end
