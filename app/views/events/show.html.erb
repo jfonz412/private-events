@@ -10,3 +10,7 @@
 	</ul>
 	<% end %>
 <% end %>
+
+<% if current_user == @event.creator %>
+	<%= link_to "Invite others", invite_path %> 
+<% end %>
