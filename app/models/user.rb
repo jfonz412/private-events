@@ -9,6 +9,7 @@ class User < ApplicationRecord
 	# can see what events (attending_events) user is attending by looking through the event_attendances tables via 'user.attending_events'
 	has_many :attending_events, :through => :event_attendances, :source => :event_attended #no _id
 
+	# not sure how to refactor into scopes, if I am supposed to
 	def upcoming_events
 		upcoming_events = []
 
