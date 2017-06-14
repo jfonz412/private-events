@@ -8,3 +8,12 @@
 	</ul>
 	<% end %>
 <% end %>
+
+<h2>Attending Events</h2>
+<% if @events %>
+	<% @events.each do |event| %>
+	<ul>
+		<li><%= link_to event.name, event_path(event) %></li>
+	</ul>
+	<% end %>
+<% end %>

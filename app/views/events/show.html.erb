@@ -2,3 +2,11 @@
 <h1><%= @event.name %></h1>
 <p><%= @event.description %></p>
 <p>Hosted by: <%= @event.creator.name %></p>
+
+<% if !@attendees.nil? %>
+	<% @attendees.each do |attendee| %>
+	<ul>
+		<li><%= attendee.name %></li>
+	</ul>
+	<% end %>
+<% end %>
