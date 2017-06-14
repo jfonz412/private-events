@@ -3,6 +3,8 @@
 <h2>Events planned:</h2>
 <% if @user.events %>
 	<% @user.events.each do |event| %>
-		<%= event.name %>
+	<ul>
+		<li><%= link_to event.name, event_path(event) %></li>
+	</ul>
 	<% end %>
 <% end %>
