@@ -1,21 +1,28 @@
 <% provide(:title, "Profile") %>
 <h1>Welcome <%= @user.name %>!</h1>
-<h2>Events planned:</h2>
-<% if @user.events %>
-	<% @user.events.each do |event| %>
+<h2>Upcoming events planned by <%= @user.name %>:</h2>
+<% if @upcoming_events %>
+	<% @upcoming_events.each do |event| %>
 	<ul>
 		<li><%= link_to event.name, event_path(event) %></li>
 	</ul>
 	<% end %>
 <% end %>
 
-<h2>Attending Events</h2>
-<% if @current_events %>
-	<% @current_events.each do |event| %>
+<h2><%= @user.name %> is attending events:</h2>
+<% if @attending_events %>
+	<% @attending_events.each do |event| %>
 	<ul>
 		<li><%= link_to event.name, event_path(event) %></li>
 	</ul>
 	<% end %>
 <% end %>
 
-<h3>Past Events</h3>
+<h3><%= @user.name %>'s past planned events:</h3>
+<% if @past_events %>
+	<% @past_events.each do |event| %>
+	<ul>
+		<li><%= link_to event.name, event_path(event) %></li>
+	</ul>
+	<% end %>
+<% end %>
