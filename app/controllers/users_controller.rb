@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     @past_events = @user.past_events
   end
 
+  def invite
+    @user = User.find(params[:user_id])
+    flash[:success] = "Invitation sent!"
+    redirect_to current_user
+  end
+
   private
   	def user_params
   		params.require(:user).permit(:name)

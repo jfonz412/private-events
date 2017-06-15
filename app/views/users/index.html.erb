@@ -1,6 +1,6 @@
 <% provide(:title, "Invite") %>
 <% @users.each do |user| %>
 <ul>
-	<li><%= user.name %></li>
+	<li><%= link_to user.name, invite_path(:user_id => user.id), method: :post %></li>
 </ul>
 <% end %>
