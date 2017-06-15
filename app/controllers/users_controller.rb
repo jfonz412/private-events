@@ -27,13 +27,24 @@ class UsersController < ApplicationController
   end
 
   def invite
-    @user = User.find(params[:user_id])
-    flash[:success] = "Invitation sent!"
-    redirect_to current_user
+    user  = params[:user_id]
+    event = params[:event_id]
+    invite = create_invitation(user,event)
+
+    if invite.save
+      flash[:success] = "Invitation sent!"
+      redirect_to current_user
+    else
+      flash[:warning] = "Something went wrong..."
+    end
   end
 
   private
   	def user_params
   		params.require(:user).permit(:name)
   	end
+
+    def create_invitation(user,event)
+      invite = EventAttendance.new(event_attended_id: event, attendee_id: user)
+    end
 end

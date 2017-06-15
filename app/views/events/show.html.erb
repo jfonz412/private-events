@@ -12,5 +12,5 @@
 <% end %>
 
 <% if current_user == @event.creator %>
-	<%= link_to "Invite others", invite_path %> 
+	<%= link_to "Invite others", invite_path(:event_id => @event.id) %> 
 <% end %>
